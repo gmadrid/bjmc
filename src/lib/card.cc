@@ -1,7 +1,5 @@
 #include "card.h"
 
-#include <iostream>
-
 constexpr const char pip_lookup[] = "A23456789TJQK";
 constexpr const size_t num_pips = sizeof(pip_lookup) / sizeof(*pip_lookup);
 constexpr const char suit_lookup[] = "SHCD";
