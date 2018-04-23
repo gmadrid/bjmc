@@ -18,3 +18,4 @@ googletest-src/
 gtest.pc
 gtest_main.pc
 unit_tests
+bjmc

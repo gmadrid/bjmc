@@ -32,6 +32,11 @@ public:
   Suit suit() const noexcept { return suit_; }
   Pips pips() const noexcept { return pips_; }
 
+  int Value() const noexcept {
+    auto pip_value = static_cast<int>(pips_);
+    return pip_value > 9 ? 10 : pip_value;
+  }
+
   std::string ToString() const noexcept;
   static Card FromString(const std::string &str) noexcept;
 

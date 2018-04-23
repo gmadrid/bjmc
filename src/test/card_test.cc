@@ -113,3 +113,19 @@ TEST(Card, FromString) {
   EXPECT_EQ("KS", Card("kS").ToString());
   EXPECT_EQ("8D", Card("8d").ToString());
 }
+
+TEST(Card, Values) {
+  EXPECT_EQ(1, Card("AS").Value());
+  EXPECT_EQ(2, Card("2S").Value());
+  EXPECT_EQ(3, Card("3S").Value());
+  EXPECT_EQ(4, Card("4S").Value());
+  EXPECT_EQ(5, Card("5S").Value());
+  EXPECT_EQ(6, Card("6S").Value());
+  EXPECT_EQ(7, Card("7S").Value());
+  EXPECT_EQ(8, Card("8S").Value());
+  EXPECT_EQ(9, Card("9S").Value());
+  EXPECT_EQ(10, Card("TS").Value());
+  EXPECT_EQ(10, Card("JS").Value());
+  EXPECT_EQ(10, Card("QS").Value());
+  EXPECT_EQ(10, Card("KS").Value());
+}
