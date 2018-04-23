@@ -1,0 +1,19 @@
+- Monte Carlo simulation of BlackJack and basic strategy
+  - set # of iterations
+  - change strategies from config file
+    - allow one file to override another
+    - check for complete strategy
+  - set # of shoes
+    - complete replacement or not
+  - log results
+    - both profit and which hands lose/win
+  - set house rules
+
+Starting rules
+- House
+  - Hit <= 16, Stand > 16
+  - Dealer wins ties
+- Player
+  - DD on anything
+  - Split any dups
+- Pay 3:2 on two card BJ
