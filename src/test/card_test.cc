@@ -1,0 +1,115 @@
+#include "../lib/card.h"
+
+#include "gtest/gtest.h"
+
+TEST(Suits, AllSuits) {
+  auto e1 = Suit::Spades;
+  EXPECT_EQ(e1, Suit::Spades);
+  e1 = Suit::Clubs;
+  EXPECT_EQ(e1, Suit::Clubs);
+  e1 = Suit::Hearts;
+  EXPECT_EQ(e1, Suit::Hearts);
+  e1 = Suit::Diamonds;
+  EXPECT_EQ(e1, Suit::Diamonds);
+}
+
+TEST(Pips, AllPips) {
+  auto pip = Pips::Ace;
+  EXPECT_EQ(pip, Pips::Ace);
+  pip = Pips::Two;
+  EXPECT_EQ(pip, Pips::Two);
+  pip = Pips::Three;
+  EXPECT_EQ(pip, Pips::Three);
+  pip = Pips::Four;
+  EXPECT_EQ(pip, Pips::Four);
+  pip = Pips::Five;
+  EXPECT_EQ(pip, Pips::Five);
+  pip = Pips::Six;
+  EXPECT_EQ(pip, Pips::Six);
+  pip = Pips::Seven;
+  EXPECT_EQ(pip, Pips::Seven);
+  pip = Pips::Eight;
+  EXPECT_EQ(pip, Pips::Eight);
+  pip = Pips::Nine;
+  EXPECT_EQ(pip, Pips::Nine);
+  pip = Pips::Ten;
+  EXPECT_EQ(pip, Pips::Ten);
+  pip = Pips::Jack;
+  EXPECT_EQ(pip, Pips::Jack);
+  pip = Pips::Queen;
+  EXPECT_EQ(pip, Pips::Queen);
+  pip = Pips::King;
+  EXPECT_EQ(pip, Pips::King);
+}
+
+TEST(Card, Ctor) {
+  Card card(Suit::Hearts, Pips::Queen);
+
+  EXPECT_EQ(card.suit(), Suit::Hearts);
+  EXPECT_EQ(card.pips(), Pips::Queen);
+}
+
+TEST(Card, CopyCtor) {
+  Card src(Suit::Hearts, Pips::Queen);
+  Card card(src);
+
+  EXPECT_EQ(card.suit(), Suit::Hearts);
+  EXPECT_EQ(card.pips(), Pips::Queen);
+}
+
+TEST(Card, CopyAssign) {
+  Card src(Suit::Hearts, Pips::Queen);
+  Card card(Suit::Diamonds, Pips::King);
+
+  EXPECT_EQ(card.suit(), Suit::Diamonds);
+  EXPECT_EQ(card.pips(), Pips::King);
+
+  card = src;
+  EXPECT_EQ(card.suit(), Suit::Hearts);
+  EXPECT_EQ(card.pips(), Pips::Queen);
+}
+
+TEST(Card, MoveCtor) {
+  Card src(Suit::Hearts, Pips::Queen);
+  Card card(std::move(src));
+
+  EXPECT_EQ(card.suit(), Suit::Hearts);
+  EXPECT_EQ(card.pips(), Pips::Queen);
+}
+
+TEST(Card, MoveAssign) {
+  Card src(Suit::Hearts, Pips::Queen);
+  Card card(Suit::Diamonds, Pips::King);
+
+  EXPECT_EQ(card.suit(), Suit::Diamonds);
+  EXPECT_EQ(card.pips(), Pips::King);
+
+  card = std::move(src);
+  EXPECT_EQ(card.suit(), Suit::Hearts);
+  EXPECT_EQ(card.pips(), Pips::Queen);
+}
+
+TEST(Card, ToString) {
+  EXPECT_EQ("AH", Card(Suit::Hearts, Pips::Ace).ToString());
+  EXPECT_EQ("TH", Card(Suit::Hearts, Pips::Ten).ToString());
+  EXPECT_EQ("2S", Card(Suit::Spades, Pips::Two).ToString());
+  EXPECT_EQ("JD", Card(Suit::Diamonds, Pips::Jack).ToString());
+  EXPECT_EQ("QC", Card(Suit::Clubs, Pips::Queen).ToString());
+  EXPECT_EQ("KC", Card(Suit::Clubs, Pips::King).ToString());
+  EXPECT_EQ("7H", Card(Suit::Hearts, Pips::Seven).ToString());
+  EXPECT_EQ("3D", Card(Suit::Diamonds, Pips::Three).ToString());
+}
+
+TEST(Card, FromString) {
+  EXPECT_EQ("3S", Card("3S").ToString());
+  EXPECT_EQ("AD", Card("AD").ToString());
+  EXPECT_EQ("KH", Card("KH").ToString());
+  EXPECT_EQ("8C", Card("8C").ToString());
+
+  EXPECT_EQ("AS", Card("as").ToString());
+  EXPECT_EQ("TH", Card("th").ToString());
+  EXPECT_EQ("JC", Card("jc").ToString());
+  EXPECT_EQ("QD", Card("qd").ToString());
+  EXPECT_EQ("KS", Card("kS").ToString());
+  EXPECT_EQ("8D", Card("8d").ToString());
+}

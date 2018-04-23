@@ -9,13 +9,14 @@ project (bjmc)
 ###
 ### Finding source files
 ###
-file(GLOB_RECURSE sources      src/main/*.cc src/main/*.h)
+file(GLOB_RECURSE sources      src/lib/*.cc src/lib/*.h)
+file(GLOB_RECURSE sources_main src/main/*.cc)
 file(GLOB_RECURSE sources_test src/test/*.cc)
 
 ###
 ### target acquisition
 ###
-add_executable(bjmc ${sources})
+add_executable(bjmc ${sources} ${sources_main})
 
 target_compile_options(bjmc PUBLIC -Wall -std=c++1z)
 
@@ -44,21 +45,9 @@ add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
 		 EXCLUDE_FROM_ALL)
 
 add_executable(unit_tests ${sources_test} ${sources})
-target_link_libraries(unit_tests gtest_main)
+target_compile_options(unit_tests PUBLIC -Wall -std=c++1z)
+target_link_libraries(unit_tests gtest gtest_main)
 add_test(NAME bjmc_test COMMAND unit_tests)
-
-if(GTEST_FOUND)
-  add_executable(unit_tests ${sources_test} ${sources})
-  target_compile_definitions(unit_tests PUBLIC UNIT_TESTS)
-  target_link_libraries(unit_tests PUBLIC
-    ${GTEST_BOTH_LIBRARIES}
-    bjmc
-  )
-
-  target_include_directories(unit_tests PUBLIC
-    ${GTEST_INCLUDE_DIRS}
-  )
-endif()
 
 find_package(GFlags REQUIRED)
 
