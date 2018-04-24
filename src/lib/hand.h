@@ -37,6 +37,8 @@ public:
   bool IsSoft() const noexcept;
   bool IsBusted() const noexcept { return Value() > 21; } // TEST
 
+  std::string ToString() const noexcept;
+
 private:
   void ComputeValues() const noexcept;
 

@@ -38,6 +38,13 @@ if(result)
   message(FATAL_ERROR, "Build step for googletest failed: ${result}")
 endif()
 
+
+
+
+###
+### Now build it all.
+### 
+
 enable_testing()
 
 add_subdirectory(${CMAKE_BINARY_DIR}/googletest-src
