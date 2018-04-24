@@ -3,6 +3,8 @@
 
 #include <string>
 
+namespace bjmc {
+
 enum class Suit : short { Invalid = 0, Spades = 1, Hearts, Clubs, Diamonds };
 
 enum class Pips : short {
@@ -54,8 +56,10 @@ public:
   static Card FromString(const std::string_view &str) noexcept;
 
 private:
-  ::Suit suit_;
-  ::Pips pips_;
+  ::bjmc::Suit suit_;
+  ::bjmc::Pips pips_;
 };
+
+}  // namespace bjmc
 
 #endif // CARD_H

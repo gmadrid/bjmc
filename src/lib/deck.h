@@ -6,6 +6,8 @@
 
 #include "card.h"
 
+namespace bjmc {
+
 class Deck {
  public:
   Deck();
@@ -22,5 +24,7 @@ class Deck {
   std::vector<Card> cards_;
   std::random_device rnd_;
 };
+
+}  // namespace bjmc
 
 #endif  // DECK_H

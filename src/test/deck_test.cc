@@ -2,6 +2,8 @@
 
 #include "gtest/gtest.h"
 
+namespace bjmc {
+
 TEST(Deck, Basic) {
   Deck deck;
   
@@ -13,3 +15,5 @@ TEST(Deck, Basic) {
   EXPECT_EQ(Card("QD"), deck.Next());
   EXPECT_EQ(50, deck.Size());
 }
+
+}  // namespace bjmc

@@ -1,5 +1,7 @@
 #include "hand.h"
 
+namespace bjmc {
+
 void Hand::ComputeValues() const noexcept {
   int total = 0;
   int ace_seen = false;
@@ -43,3 +45,5 @@ std::string Hand::ToString() const noexcept {
   val += "-> " + std::to_string(Value());
   return val;
 }
+
+}  // namespace

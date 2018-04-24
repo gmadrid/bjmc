@@ -5,6 +5,8 @@
 
 #include <vector>
 
+namespace bjmc {
+
 class Hand {
 public:
   // Create a new empty hand.
@@ -49,4 +51,7 @@ private:
   mutable bool is_soft_ = false;
 };
 
+}  // namespace bjmc
+
 #endif // HAND_H
+

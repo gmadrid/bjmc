@@ -2,6 +2,8 @@
 
 #include <algorithm>
 
+namespace bjmc {
+
 Deck::Deck() {
   cards_.reserve(52);
 
@@ -20,3 +22,5 @@ Deck::Deck() {
 void Deck::Shuffle() noexcept {
   std::shuffle(cards_.begin(), cards_.end(), rnd_);
 }
+
+}  // namespace bjmc

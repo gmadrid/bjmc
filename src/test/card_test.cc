@@ -2,6 +2,8 @@
 
 #include "gtest/gtest.h"
 
+namespace bjmc {
+
 TEST(Suits, AllSuits) {
   auto e1 = Suit::Spades;
   EXPECT_EQ(e1, Suit::Spades);
@@ -144,3 +146,5 @@ TEST(Card, Equality) {
   EXPECT_FALSE(c1 == e1);
   EXPECT_FALSE(c1 == f1);
 }
+
+}  // namespace bjmc

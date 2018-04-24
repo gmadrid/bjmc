@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+namespace bjmc {
+
 Game::Game(std::unique_ptr<DealerStrategy> dealer, std::unique_ptr<PlayerStrategy> player,
 	   std::unique_ptr<Deck> deck)
   : dealer_(std::move(dealer)), player_(std::move(player)), deck_(std::move(deck)) {
@@ -57,3 +59,5 @@ void Game::RunDealer() {
 
 void Game::FindWinner() {
 }
+
+}  // namespace bjmc

@@ -2,6 +2,8 @@
 
 #include "gtest/gtest.h"
 
+namespace bjmc {
+
 TEST(Hand, Empty) {
   Hand hand;
 
@@ -162,3 +164,5 @@ TEST(Hand, Size) {
   hand.AddCard(Card{"QH"});
   EXPECT_EQ(3, hand.Size());
 }
+
+}  // namespace bjmc

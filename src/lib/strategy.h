@@ -3,6 +3,8 @@
 
 #include "hand.h"
 
+namespace bjmc {
+
 enum class Action {
   Stay,
   Hit,
@@ -28,4 +30,7 @@ public:
   Action ChooseAction(const Hand &dealer_hand) const noexcept override;
 };
 
+}  // namespace bjmc
+
 #endif // STRATEGY_H
+

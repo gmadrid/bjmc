@@ -1,5 +1,7 @@
 #include "card.h"
 
+namespace bjmc {
+
 constexpr const char pip_lookup[] = "A23456789TJQK";
 constexpr const size_t num_pips = sizeof(pip_lookup) / sizeof(*pip_lookup);
 constexpr const char suit_lookup[] = "SHCD";
@@ -17,8 +19,8 @@ Card::Card(const std::string_view &desc) noexcept {
     suit_ = Suit::Invalid;
     pips_ = Pips::Invalid;
   } else {
-    pips_ = static_cast<::Pips>(pi - pip_lookup + 1);
-    suit_ = static_cast<::Suit>(si - suit_lookup + 1);
+    pips_ = static_cast<::bjmc::Pips>(pi - pip_lookup + 1);
+    suit_ = static_cast<::bjmc::Suit>(si - suit_lookup + 1);
   }
 }
 
@@ -33,3 +35,5 @@ std::string Card::ToString() const noexcept {
   buf[2] = '\0';
   return buf;
 }
+
+}  // namespace bjmc

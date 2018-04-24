@@ -6,6 +6,8 @@
 #include "deck.h"
 #include "strategy.h"
 
+namespace bjmc {
+
 class Game {
 
   // 1. Make a Dealer player with dealer strategy.
@@ -43,5 +45,7 @@ class Game {
   
   std::unique_ptr<Deck> deck_;
 };
+
+}  // namespace bjmc
 
 #endif  // GAME_H

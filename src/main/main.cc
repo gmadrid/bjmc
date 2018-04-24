@@ -5,11 +5,11 @@
 #include "../lib/strategy.h"
 
 int main() {
-  auto dealer = std::make_unique<BasicDealerStrategy>();
-  auto player = std::make_unique<BasicStrategy>();
-  auto deck = std::make_unique<Deck>();
+  auto dealer = std::make_unique<bjmc::BasicDealerStrategy>();
+  auto player = std::make_unique<bjmc::BasicStrategy>();
+  auto deck = std::make_unique<bjmc::Deck>();
   deck->Shuffle();
   
-  Game game(std::move(dealer), std::move(player), std::move(deck));
+  bjmc::Game game(std::move(dealer), std::move(player), std::move(deck));
   game.simulate();
 }

@@ -2,6 +2,8 @@
 
 #include "rules.h"
 
+namespace bjmc {
+
 // TODO: deal with double allowed after split
 // Tables from
 // https://www.blackjackapprenticeship.com/resources/blackjack-strategy-charts/
@@ -132,3 +134,5 @@ Action BasicStrategy::ChooseAction(const Hand &player_hand,
 
   return action;
 }
+
+}  // namespace bjmc

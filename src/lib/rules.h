@@ -3,6 +3,8 @@
 
 #include "hand.h"
 
+namespace bjmc {
+
 class Rules {
 public:
   bool DealerHits(const Hand &hand) const noexcept { return hand.Value() < 17; }
@@ -23,5 +25,7 @@ public:
     return hand.Size() == 2;
   }
 };
+
+}  // namespace bjmc
 
 #endif // RULES_H

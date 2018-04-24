@@ -2,6 +2,8 @@
 
 #include "gtest/gtest.h"
 
+namespace bjmc {
+
 TEST(Rules, DealerHitsTest) {
   Rules rules;
 
@@ -14,3 +16,5 @@ TEST(Rules, DealerHitsTest) {
   EXPECT_FALSE(rules.DealerHits(Hand{"AD", "6C"}));
   EXPECT_FALSE(rules.DealerHits(Hand{"AS", "JC"}));
 }
+
+}  // namespace bjmc
