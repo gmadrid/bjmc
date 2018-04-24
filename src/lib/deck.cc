@@ -1,7 +1,6 @@
 #include "deck.h"
 
 #include <algorithm>
-#include <random>
 
 Deck::Deck() {
   cards_.reserve(52);
@@ -19,5 +18,5 @@ Deck::Deck() {
 }
 
 void Deck::Shuffle() noexcept {
-  std::shuffle(cards_.begin(), cards_.end(), std::random_device());
+  std::shuffle(cards_.begin(), cards_.end(), rnd_);
 }

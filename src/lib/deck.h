@@ -2,7 +2,7 @@
 #define DECK_H
 
 #include <vector>
-#include <iostream>
+#include <random>
 
 #include "card.h"
 
@@ -20,6 +20,7 @@ class Deck {
 
  private:
   std::vector<Card> cards_;
+  std::random_device rnd_;
 };
 
 #endif  // DECK_H
