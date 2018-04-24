@@ -6,7 +6,7 @@
 #include <vector>
 
 class Hand {
- public:
+public:
   // Create a new empty hand.
   Hand() noexcept {}
 
@@ -18,13 +18,13 @@ class Hand {
   }
 
   ~Hand() = default;
-  Hand(const Hand& hand) = default;
-  Hand(Hand&& hand) = default;
-  Hand& operator=(const Hand& other) = default;
-  Hand& operator=(Hand&& other) = default;
+  Hand(const Hand &hand) = default;
+  Hand(Hand &&hand) = default;
+  Hand &operator=(const Hand &other) = default;
+  Hand &operator=(Hand &&other) = default;
 
-  Card& operator[](size_t index) noexcept { return cards_[index]; }
-  const Card& operator[](size_t index) const noexcept { return cards_[index]; }
+  Card &operator[](size_t index) noexcept { return cards_[index]; }
+  const Card &operator[](size_t index) const noexcept { return cards_[index]; }
 
   size_t Size() const noexcept { return cards_.size(); }
 
@@ -35,11 +35,11 @@ class Hand {
 
   int Value() const noexcept;
   bool IsSoft() const noexcept;
-  bool IsBusted() const noexcept { return Value() > 21; }  // TEST
+  bool IsBusted() const noexcept { return Value() > 21; } // TEST
 
- private:
+private:
   void ComputeValues() const noexcept;
-  
+
   std::vector<Card> cards_;
 
   mutable bool values_valid_ = false;
@@ -47,4 +47,4 @@ class Hand {
   mutable bool is_soft_ = false;
 };
 
-#endif  // HAND_H
+#endif // HAND_H

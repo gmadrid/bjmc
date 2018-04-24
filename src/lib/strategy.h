@@ -19,7 +19,8 @@ public:
 
 class PlayerStrategy {
 public:
-  virtual Action ChooseAction(const Hand &player_hand, Card dealer_card) const noexcept = 0;
+  virtual Action ChooseAction(const Hand &player_hand, Card dealer_card) const
+      noexcept = 0;
 };
 
 class BasicDealerStrategy : public DealerStrategy {
@@ -27,6 +28,4 @@ public:
   Action ChooseAction(const Hand &dealer_hand) const noexcept override;
 };
 
-  
-
-#endif  // STRATEGY_H
+#endif // STRATEGY_H
