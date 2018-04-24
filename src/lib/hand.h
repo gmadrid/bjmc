@@ -51,7 +51,6 @@ private:
   mutable bool is_soft_ = false;
 };
 
-}  // namespace bjmc
+} // namespace bjmc
 
 #endif // HAND_H
-

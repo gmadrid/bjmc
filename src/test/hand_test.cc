@@ -165,4 +165,4 @@ TEST(Hand, Size) {
   EXPECT_EQ(3, hand.Size());
 }
 
-}  // namespace bjmc
+} // namespace bjmc

@@ -30,7 +30,6 @@ public:
   Action ChooseAction(const Hand &dealer_hand) const noexcept override;
 };
 
-}  // namespace bjmc
+} // namespace bjmc
 
 #endif // STRATEGY_H
-

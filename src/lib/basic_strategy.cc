@@ -135,4 +135,4 @@ Action BasicStrategy::ChooseAction(const Hand &player_hand,
   return action;
 }
 
-}  // namespace bjmc
+} // namespace bjmc

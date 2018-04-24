@@ -60,6 +60,6 @@ private:
   ::bjmc::Pips pips_;
 };
 
-}  // namespace bjmc
+} // namespace bjmc
 
 #endif // CARD_H

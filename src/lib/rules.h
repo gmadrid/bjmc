@@ -26,6 +26,6 @@ public:
   }
 };
 
-}  // namespace bjmc
+} // namespace bjmc
 
 #endif // RULES_H

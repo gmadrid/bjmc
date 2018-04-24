@@ -39,11 +39,11 @@ bool Hand::IsSoft() const noexcept {
 std::string Hand::ToString() const noexcept {
   // TODO: get absl in here.
   std::string val;
-  for (const auto& card : cards_) {
+  for (const auto &card : cards_) {
     val += card.ToString() + " ";
   }
   val += "-> " + std::to_string(Value());
   return val;
 }
 
-}  // namespace
+} // namespace bjmc

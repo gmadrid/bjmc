@@ -11,6 +11,6 @@ public:
       noexcept override;
 };
 
-}  // namespace bjmc
+} // namespace bjmc
 
 #endif // BASIC_STRATEGY_H

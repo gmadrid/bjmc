@@ -69,4 +69,4 @@ TEST(BasicStrategy, Typical) {
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"5C", "7D"}, Card("6C")));
 }
 
-}  // namespace bjmc
+} // namespace bjmc

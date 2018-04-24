@@ -9,7 +9,7 @@ int main() {
   auto player = std::make_unique<bjmc::BasicStrategy>();
   auto deck = std::make_unique<bjmc::Deck>();
   deck->Shuffle();
-  
+
   bjmc::Game game(std::move(dealer), std::move(player), std::move(deck));
   game.simulate();
 }

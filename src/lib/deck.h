@@ -1,15 +1,15 @@
 #ifndef DECK_H
 #define DECK_H
 
-#include <vector>
 #include <random>
+#include <vector>
 
 #include "card.h"
 
 namespace bjmc {
 
 class Deck {
- public:
+public:
   Deck();
   void Shuffle() noexcept;
 
@@ -20,11 +20,11 @@ class Deck {
   }
   int Size() const noexcept { return cards_.size(); }
 
- private:
+private:
   std::vector<Card> cards_;
   std::random_device rnd_;
 };
 
-}  // namespace bjmc
+} // namespace bjmc
 
-#endif  // DECK_H
+#endif // DECK_H

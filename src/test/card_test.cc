@@ -147,4 +147,4 @@ TEST(Card, Equality) {
   EXPECT_FALSE(c1 == f1);
 }
 
-}  // namespace bjmc
+} // namespace bjmc
