@@ -4,7 +4,10 @@
 #include "card.h"
 #include "hand.h"
 
+namespace bjmc {	
+
 class Player {
+ public:
   Player();
 
   ~Player() = default;
@@ -17,15 +20,17 @@ class Player {
   std::string Name() { return name_; }
   void SetName(std::string_view name) { name_ = name; }
 
-  void DealCard(Card card) { hand_.AddCard(card); }
-  int Total() const { return hand_.Value(); }
-  bool IsBusted() const { return Total() > 21; }
+  //  void DealCard(Card card) { hand_.AddCard(card); }
+  //  int Total() const { return hand_.Value(); }
+  //  bool IsBusted() const { return Total() > 21; }
 
-  const Hand &Hand() { return hand_; }
+  //  const Hand &Hand() { return hand_; }
 
 private:
-  Hand hand_;
+  //  Hand hand_;
   std::string name_;
 };
+
+}  // namespace bjmc
 
 #endif // PLAYER_H
