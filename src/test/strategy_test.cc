@@ -12,7 +12,8 @@ TEST(BasicDealerStrategy, Simple) {
 
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"AS", "3H", "3C"}));
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"AS", "TH"}));
-  EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"TS", "3H", "2C", "AC", "AD"}));
+  EXPECT_EQ(Action::Stay,
+            strategy.ChooseAction(Hand{"TS", "3H", "2C", "AC", "AD"}));
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"TS", "TH"}));
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"TS", "AH"}));
 }

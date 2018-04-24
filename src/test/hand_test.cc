@@ -45,13 +45,13 @@ TEST(Hand, AddingCards) {
 }
 
 TEST(Hand, FromInitList) {
-  auto hand = Hand{ "2S", "3H", "4H"};
+  auto hand = Hand{"2S", "3H", "4H"};
   EXPECT_EQ(9, hand.Value());
   EXPECT_FALSE(hand.IsSoft());
 }
 
 TEST(Hand, CopyCtor) {
-  auto hand = Hand{ "AC", "2D", "3S", "4C"};
+  auto hand = Hand{"AC", "2D", "3S", "4C"};
   auto c(hand);
 
   EXPECT_EQ(hand.Value(), c.Value());
@@ -59,7 +59,7 @@ TEST(Hand, CopyCtor) {
 }
 
 TEST(Hand, CopyAssign) {
-  auto hand = Hand{ "2C", "4S", "9S" };
+  auto hand = Hand{"2C", "4S", "9S"};
   auto c = Hand{"3S", "8H"};
   c = hand;
 
@@ -102,23 +102,23 @@ TEST(Hand, MoveAssign) {
 }
 
 TEST(Hand, HardTotalNoAces) {
-  auto hand = Hand{ "2S", "8D"};
+  auto hand = Hand{"2S", "8D"};
   EXPECT_EQ(10, hand.Value());
   EXPECT_FALSE(hand.IsSoft());
 
-  hand = Hand{ "2S", "8D", "9C"};
+  hand = Hand{"2S", "8D", "9C"};
   EXPECT_EQ(19, hand.Value());
   EXPECT_FALSE(hand.IsSoft());
 }
 
 TEST(Hand, HandTotalWithAces) {
-  auto hand = Hand{ "AS", "9C", "9C"};
+  auto hand = Hand{"AS", "9C", "9C"};
   EXPECT_EQ(19, hand.Value());
   EXPECT_FALSE(hand.IsSoft());
 }
 
 TEST(Hand, SoftWithAces) {
-  auto hand = Hand{ "AD", "TC" };
+  auto hand = Hand{"AD", "TC"};
   EXPECT_EQ(21, hand.Value());
   EXPECT_TRUE(hand.IsSoft());
 

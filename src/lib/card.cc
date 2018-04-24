@@ -28,7 +28,7 @@ string Card::ToString() const noexcept {
   if (suit_ == Suit::Invalid || pips_ == Pips::Invalid) {
     return "XX";
   }
-  
+
   char buf[3];
   buf[0] = pip_lookup[static_cast<int>(pips_) - 1];
   buf[1] = suit_lookup[static_cast<int>(suit_) - 1];

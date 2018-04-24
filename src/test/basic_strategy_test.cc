@@ -29,15 +29,18 @@ TEST(BasicStrategy, TwoCardSoft) {
 
   EXPECT_EQ(Action::Hit, strategy.ChooseAction(Hand{"AS", "2C"}, Card("2C")));
   EXPECT_EQ(Action::Hit, strategy.ChooseAction(Hand{"AS", "2C"}, Card("4C")));
-  EXPECT_EQ(Action::Double, strategy.ChooseAction(Hand{"AS", "2C"}, Card("5C")));
-  EXPECT_EQ(Action::Double, strategy.ChooseAction(Hand{"AS", "2C"}, Card("6C")));
+  EXPECT_EQ(Action::Double,
+            strategy.ChooseAction(Hand{"AS", "2C"}, Card("5C")));
+  EXPECT_EQ(Action::Double,
+            strategy.ChooseAction(Hand{"AS", "2C"}, Card("6C")));
   EXPECT_EQ(Action::Hit, strategy.ChooseAction(Hand{"AS", "2C"}, Card("7C")));
   EXPECT_EQ(Action::Hit, strategy.ChooseAction(Hand{"AS", "2C"}, Card("TC")));
   EXPECT_EQ(Action::Hit, strategy.ChooseAction(Hand{"AS", "2C"}, Card("AC")));
 
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"8S", "AC"}, Card("2C")));
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"8S", "AC"}, Card("5C")));
-  EXPECT_EQ(Action::Double, strategy.ChooseAction(Hand{"8S", "AC"}, Card("6C")));
+  EXPECT_EQ(Action::Double,
+            strategy.ChooseAction(Hand{"8S", "AC"}, Card("6C")));
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"8S", "AC"}, Card("7C")));
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"8S", "AC"}, Card("TC")));
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"8S", "AC"}, Card("AC")));
@@ -45,17 +48,19 @@ TEST(BasicStrategy, TwoCardSoft) {
 
 TEST(BasicStrategy, Doubles) {
   BasicStrategy strategy;
-  
+
   EXPECT_EQ(Action::Hit, strategy.ChooseAction(Hand{"3C", "7D"}, Card("AC")));
-  EXPECT_EQ(Action::Double, strategy.ChooseAction(Hand{"3C", "7D"}, Card("2C")));
+  EXPECT_EQ(Action::Double,
+            strategy.ChooseAction(Hand{"3C", "7D"}, Card("2C")));
   EXPECT_EQ(Action::Hit, strategy.ChooseAction(Hand{"3C", "7D"}, Card("TC")));
 
-  EXPECT_EQ(Action::Hit, strategy.ChooseAction(Hand{"6C", "3D", "2H"}, Card("6C")));
+  EXPECT_EQ(Action::Hit,
+            strategy.ChooseAction(Hand{"6C", "3D", "2H"}, Card("6C")));
 }
 
 TEST(BasicStrategy, Typical) {
   BasicStrategy strategy;
-  
+
   EXPECT_EQ(Action::Hit, strategy.ChooseAction(Hand{"5C", "7D"}, Card("AC")));
   EXPECT_EQ(Action::Hit, strategy.ChooseAction(Hand{"5C", "7D"}, Card("2C")));
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"5C", "7D"}, Card("4C")));

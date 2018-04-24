@@ -1,5 +1,3 @@
 #include "../lib/card.h"
 
-int
-main() {
-}
+int main() {}
