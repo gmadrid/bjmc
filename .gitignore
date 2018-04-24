@@ -12,9 +12,8 @@ CTestTestfile.cmake
 
 gmock.pc
 gmock_main.pc
-googletest-build/
-googletest-download/
-googletest-src/
+abseil-*/
+googletest-*/
 gtest.pc
 gtest_main.pc
 unit_tests
