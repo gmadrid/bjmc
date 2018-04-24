@@ -1,3 +1,15 @@
+Need:
+
+  Table
+  - Betting slots
+    - (Player)
+    - Current bet
+
+  - Player (may be used by multiple slots)
+    - Strategy
+    - Bankroll
+
+
 - Monte Carlo simulation of BlackJack and basic strategy
   - set # of iterations
   - change strategies from config file
