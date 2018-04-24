@@ -30,7 +30,7 @@ public:
   Card(Suit suit, Pips pips) noexcept : suit_(suit), pips_(pips) {}
 
   // TODO: eliminate invalid cards
-  explicit Card(const std::string &desc) noexcept;
+  explicit Card(const std::string_view &desc) noexcept;
 
   ~Card() = default;
   Card(const Card &card) = default;
@@ -51,7 +51,7 @@ public:
   }
 
   std::string ToString() const noexcept;
-  static Card FromString(const std::string &str) noexcept;
+  static Card FromString(const std::string_view &str) noexcept;
 
 private:
   ::Suit suit_;

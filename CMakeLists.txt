@@ -32,17 +32,18 @@ add_subdirectory(${googletest_SOURCE_DIR} ${googletest_BINARY_DIR})
 ###
 ### abseil
 ###
-set(BUILD_TESTING "OFF")
-download_project(PROJ                abseil
-		 GIT_REPOSITORY      https://github.com/abseil/abseil-cpp.git
-		 GIT_TAG             master
-		 UPDATE_DISCONNECTED 1)
-add_subdirectory(${abseil_SOURCE_DIR} ${abseil_BINARY_DIR})
+#set(BUILD_TESTING "OFF")
+#download_project(PROJ                abseil
+#		 GIT_REPOSITORY      https://github.com/abseil/abseil-cpp.git
+#		 GIT_TAG             master
+#		 UPDATE_DISCONNECTED 1)
+#add_subdirectory(${abseil_SOURCE_DIR} ${abseil_BINARY_DIR})
 
 ###
 ### bjmc
 ###
 add_executable(bjmc ${sources} ${sources_main})
+target_link_libraries(bjmc)
 
 ###
 ### unittests

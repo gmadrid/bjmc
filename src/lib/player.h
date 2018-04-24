@@ -15,7 +15,7 @@ class Player {
 
   // TODO: test this stuff
   std::string Name() { return name_; }
-  void SetName(std::string name) { name_ = name; }
+  void SetName(std::string_view name) { name_ = name; }
 
   void DealCard(Card card) { hand_.AddCard(card); }
   int Total() const { return hand_.Value(); }

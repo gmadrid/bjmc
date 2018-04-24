@@ -5,9 +5,7 @@ constexpr const size_t num_pips = sizeof(pip_lookup) / sizeof(*pip_lookup);
 constexpr const char suit_lookup[] = "SHCD";
 constexpr const size_t num_suits = sizeof(suit_lookup) / sizeof(*suit_lookup);
 
-using std::string;
-
-Card::Card(const std::string &desc) noexcept {
+Card::Card(const std::string_view &desc) noexcept {
   // assumes no spaces.
   auto pc = toupper(desc[0]);
   auto sc = toupper(desc[1]);
@@ -24,7 +22,7 @@ Card::Card(const std::string &desc) noexcept {
   }
 }
 
-string Card::ToString() const noexcept {
+std::string Card::ToString() const noexcept {
   if (suit_ == Suit::Invalid || pips_ == Pips::Invalid) {
     return "XX";
   }
