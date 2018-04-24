@@ -7,25 +7,35 @@
 
 class Hand {
  public:
-  Hand(Card card1, Card card2) {
-    cards_.emplace_back(std::move(card1));
-    cards_.emplace_back(std::move(card2));
-  }
-  Hand(std::initializer_list<std::string> lst) {
+  // Create a new empty hand.
+  Hand() noexcept {}
+
+  // Mostly for testing. Create a hand from a list of card names.
+  Hand(std::initializer_list<std::string> lst) noexcept {
     for (const auto &p : lst) {
       cards_.emplace_back(p);
     }
   }
 
-  Hand() = delete;
   ~Hand() = default;
   Hand(const Hand& hand) = default;
   Hand(Hand&& hand) = default;
   Hand& operator=(const Hand& other) = default;
   Hand& operator=(Hand&& other) = default;
 
+  Card& operator[](size_t index) noexcept { return cards_[index]; }
+  const Card& operator[](size_t index) const noexcept { return cards_[index]; }
+
+  size_t Size() const noexcept { return cards_.size(); }
+
+  void AddCard(Card card) noexcept {
+    cards_.emplace_back(std::move(card));
+    values_valid_ = false;
+  }
+
   int Value() const noexcept;
   bool IsSoft() const noexcept;
+  bool IsBusted() const noexcept { return Value() > 21; }  // TEST
 
  private:
   void ComputeValues() const noexcept;

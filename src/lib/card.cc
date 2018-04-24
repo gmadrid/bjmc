@@ -19,8 +19,8 @@ Card::Card(const std::string &desc) noexcept {
     suit_ = Suit::Invalid;
     pips_ = Pips::Invalid;
   } else {
-    pips_ = static_cast<Pips>(pi - pip_lookup + 1);
-    suit_ = static_cast<Suit>(si - suit_lookup + 1);
+    pips_ = static_cast<::Pips>(pi - pip_lookup + 1);
+    suit_ = static_cast<::Suit>(si - suit_lookup + 1);
   }
 }
 
@@ -35,4 +35,3 @@ string Card::ToString() const noexcept {
   buf[2] = '\0';
   return buf;
 }
-

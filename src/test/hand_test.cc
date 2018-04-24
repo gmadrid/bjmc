@@ -2,11 +2,46 @@
 
 #include "gtest/gtest.h"
 
+TEST(Hand, Empty) {
+  Hand hand;
+
+  EXPECT_EQ(0, hand.Value());
+  EXPECT_FALSE(hand.IsSoft());
+}
+
 TEST(Hand, Basic) {
-  auto hand = Hand(Card("AH"), Card("JS"));
+  auto hand = Hand{"AH", "JS"};
 
   EXPECT_EQ(21, hand.Value());
   EXPECT_TRUE(hand.IsSoft());
+}
+
+TEST(Hand, AddingCards) {
+  Hand hand;
+
+  hand.AddCard(Card("3C"));
+  EXPECT_EQ(3, hand.Value());
+  EXPECT_FALSE(hand.IsSoft());
+
+  hand.AddCard(Card("6D"));
+  EXPECT_EQ(9, hand.Value());
+  EXPECT_FALSE(hand.IsSoft());
+
+  hand.AddCard(Card("AS"));
+  EXPECT_EQ(20, hand.Value());
+  EXPECT_TRUE(hand.IsSoft());
+
+  hand.AddCard(Card("TC"));
+  EXPECT_EQ(20, hand.Value());
+  EXPECT_FALSE(hand.IsSoft());
+
+  hand.AddCard(Card("AD"));
+  EXPECT_EQ(21, hand.Value());
+  EXPECT_FALSE(hand.IsSoft());
+
+  hand.AddCard(Card("2C"));
+  EXPECT_EQ(23, hand.Value());
+  EXPECT_FALSE(hand.IsSoft());
 }
 
 TEST(Hand, FromInitList) {
@@ -90,4 +125,40 @@ TEST(Hand, SoftWithAces) {
   hand = Hand{"AD", "AC", "AH"};
   EXPECT_EQ(13, hand.Value());
   EXPECT_TRUE(hand.IsSoft());
+}
+
+TEST(Hand, Indexing) {
+  Hand hand{"AS", "2C", "3H", "4D"};
+  EXPECT_EQ(Card{"AS"}, hand[0]);
+  EXPECT_EQ(Card{"2C"}, hand[1]);
+  EXPECT_EQ(Card{"3H"}, hand[2]);
+  EXPECT_EQ(Card{"4D"}, hand[3]);
+
+  hand[1] = Card("TD");
+  EXPECT_EQ(Card{"AS"}, hand[0]);
+  EXPECT_EQ(Card{"TD"}, hand[1]);
+  EXPECT_EQ(Card{"3H"}, hand[2]);
+  EXPECT_EQ(Card{"4D"}, hand[3]);
+}
+
+TEST(Hand, ConstIndexing) {
+  const Hand hand{"AS", "2C", "3H", "4D"};
+  EXPECT_EQ(Card{"AS"}, hand[0]);
+  EXPECT_EQ(Card{"2C"}, hand[1]);
+  EXPECT_EQ(Card{"3H"}, hand[2]);
+  EXPECT_EQ(Card{"4D"}, hand[3]);
+}
+
+TEST(Hand, Size) {
+  Hand hand;
+  EXPECT_EQ(0, hand.Size());
+
+  hand.AddCard(Card{"3S"});
+  EXPECT_EQ(1, hand.Size());
+
+  hand.AddCard(Card{"4D"});
+  EXPECT_EQ(2, hand.Size());
+
+  hand.AddCard(Card{"QH"});
+  EXPECT_EQ(3, hand.Size());
 }

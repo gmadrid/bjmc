@@ -29,8 +29,12 @@ public:
   Card& operator=(const Card& other) = default;
   Card& operator=(Card &&other) = default;
 
-  Suit suit() const noexcept { return suit_; }
-  Pips pips() const noexcept { return pips_; }
+  friend bool operator==(const Card& lhs, const Card& rhs) {
+    return lhs.suit_ == rhs.suit_ && lhs.pips_ == rhs.pips_;
+  }
+
+  Suit Suit() const noexcept { return suit_; }
+  Pips Pips() const noexcept { return pips_; }
 
   int Value() const noexcept {
     auto pip_value = static_cast<int>(pips_);
@@ -41,9 +45,8 @@ public:
   static Card FromString(const std::string &str) noexcept;
 
 private:
-  
-  Suit suit_;
-  Pips pips_;
+  ::Suit suit_;
+  ::Pips pips_;
 };
 
 #endif  // CARD_H

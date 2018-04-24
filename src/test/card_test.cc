@@ -45,48 +45,48 @@ TEST(Pips, AllPips) {
 TEST(Card, Ctor) {
   Card card(Suit::Hearts, Pips::Queen);
 
-  EXPECT_EQ(card.suit(), Suit::Hearts);
-  EXPECT_EQ(card.pips(), Pips::Queen);
+  EXPECT_EQ(card.Suit(), Suit::Hearts);
+  EXPECT_EQ(card.Pips(), Pips::Queen);
 }
 
 TEST(Card, CopyCtor) {
   Card src(Suit::Hearts, Pips::Queen);
   Card card(src);
 
-  EXPECT_EQ(card.suit(), Suit::Hearts);
-  EXPECT_EQ(card.pips(), Pips::Queen);
+  EXPECT_EQ(card.Suit(), Suit::Hearts);
+  EXPECT_EQ(card.Pips(), Pips::Queen);
 }
 
 TEST(Card, CopyAssign) {
   Card src(Suit::Hearts, Pips::Queen);
   Card card(Suit::Diamonds, Pips::King);
 
-  EXPECT_EQ(card.suit(), Suit::Diamonds);
-  EXPECT_EQ(card.pips(), Pips::King);
+  EXPECT_EQ(card.Suit(), Suit::Diamonds);
+  EXPECT_EQ(card.Pips(), Pips::King);
 
   card = src;
-  EXPECT_EQ(card.suit(), Suit::Hearts);
-  EXPECT_EQ(card.pips(), Pips::Queen);
+  EXPECT_EQ(card.Suit(), Suit::Hearts);
+  EXPECT_EQ(card.Pips(), Pips::Queen);
 }
 
 TEST(Card, MoveCtor) {
   Card src(Suit::Hearts, Pips::Queen);
   Card card(std::move(src));
 
-  EXPECT_EQ(card.suit(), Suit::Hearts);
-  EXPECT_EQ(card.pips(), Pips::Queen);
+  EXPECT_EQ(card.Suit(), Suit::Hearts);
+  EXPECT_EQ(card.Pips(), Pips::Queen);
 }
 
 TEST(Card, MoveAssign) {
   Card src(Suit::Hearts, Pips::Queen);
   Card card(Suit::Diamonds, Pips::King);
 
-  EXPECT_EQ(card.suit(), Suit::Diamonds);
-  EXPECT_EQ(card.pips(), Pips::King);
+  EXPECT_EQ(card.Suit(), Suit::Diamonds);
+  EXPECT_EQ(card.Pips(), Pips::King);
 
   card = std::move(src);
-  EXPECT_EQ(card.suit(), Suit::Hearts);
-  EXPECT_EQ(card.pips(), Pips::Queen);
+  EXPECT_EQ(card.Suit(), Suit::Hearts);
+  EXPECT_EQ(card.Pips(), Pips::Queen);
 }
 
 TEST(Card, ToString) {
@@ -128,4 +128,19 @@ TEST(Card, Values) {
   EXPECT_EQ(10, Card("JS").Value());
   EXPECT_EQ(10, Card("QS").Value());
   EXPECT_EQ(10, Card("KS").Value());
+}
+
+TEST(Card, Equality) {
+  Card c1("AS");
+  Card c2("AS");
+  Card d1("AD");
+  Card e1("TS");
+  Card f1("5C");
+
+  EXPECT_TRUE(c1 == c1);
+  EXPECT_TRUE(c1 == c2);
+  EXPECT_TRUE(c2 == c1);
+  EXPECT_FALSE(c1 == d1);
+  EXPECT_FALSE(c1 == e1);
+  EXPECT_FALSE(c1 == f1);
 }
