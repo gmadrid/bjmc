@@ -3,6 +3,8 @@
 
 #include <string>
 
+#include "absl/strings/string_view.h"
+
 namespace bjmc {
 
 enum class Suit : short { Invalid = 0, Spades = 1, Hearts, Clubs, Diamonds };
@@ -32,7 +34,7 @@ public:
   Card(Suit suit, Pips pips) noexcept : suit_(suit), pips_(pips) {}
 
   // TODO: eliminate invalid cards
-  explicit Card(const std::string_view &desc) noexcept;
+  explicit Card(const absl::string_view &desc) noexcept;
 
   ~Card() = default;
   Card(const Card &card) = default;
@@ -53,7 +55,7 @@ public:
   }
 
   std::string ToString() const noexcept;
-  static Card FromString(const std::string_view &str) noexcept;
+  static Card FromString(const absl::string_view &str) noexcept;
 
 private:
   ::bjmc::Suit suit_;
