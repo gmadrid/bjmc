@@ -10,7 +10,7 @@ Need:
     - Bankroll
 
 
-- Monte Carlo simulation of BlackJack and basic strategy
+- Monte Carlo simulation of Blackjack and basic strategy
   - set # of iterations
   - change strategies from config file
     - allow one file to override another
@@ -29,3 +29,50 @@ Starting rules
   - DD on anything
   - Split any dups
 - Pay 3:2 on two card BJ
+
+
+    // 1. Each Player makes a wager.
+    // 2. Dealer deals a hand to all players and self.
+    // 3. Foreach Player
+    //    a. foreach Wager
+    //       i. Run the Player's strategy
+    //      ii. If Double Down
+    //          - double wager
+    //          - hit once and stop.
+    //     iii. If Split
+    //          - make a new Wager
+    //          - Make a new Hand with each card, and replace Hands in Wagers.
+    //          - hit each new Hand.
+
+Game
+
+Rules
+
+Strategy
+
+Table
+
+Player
+
+Seat -  ?
+
+Wager - A bankroll with an associated Hand. Since you cannot play for free,
+every hand has a bet attached. This is loosely analogous to the little betting
+square on the Blackjack felt, but Splitting hands breaks the analogy.
+
+Hand - A collection of cards in a Blackjack hand. Can be empty, or could
+contain a whole Deck. The Value() of a hand is determined using the rules of
+Blackjack.
+
+Deck - A collection of Cards starting with exactly the set of Pips X
+  Suit. This starting set has 52 cards. It can be shuffled, and cards can be
+  dealt one-by-one from the top of the deck.
+
+Card - The fundamental unit of a card deck. Each has a Value as well as a Pip
+  and Suit. Suits are irrelevant for Blackjack, but are necessary for the UI.
+
+Bankroll - Money, matchsticks, or whatever unit of currency is used to
+bet. Once a Bankroll is created, money is conserved. It can be transferred
+between Bankrolls, but never removed from the system entirely. (Unless the
+Bankroll object is freed, I guess. I'm not that paranoid.)
+

@@ -2,20 +2,22 @@
 
 namespace bjmc {
 
-  void Table::Simulate() {
+  void Table::Simulate() noexcept {
 
-    // 1. Each Player makes a wager.
-    // 2. Dealer deals a hand to all players and self.
-    // 3. Foreach Player
-    //    a. foreach Wager
-    //       i. Run the Player's strategy
-    //      ii. If Double Down
-    //          - double wager
-    //          - hit once and stop.
-    //     iii. If Split
-    //          - make a new Wager
-    //          - Make a new Hand with each card, and replace Hands in Wagers.
-    //          - hit each new Hand.
+    for (auto *seat : seats_) {
+      seat.MakeWager();
+      seat.DealHand(&deck);
+    }
+
+    dealer_hand_.AddCard(deck.Next());
+    dealer_hand_.AddCard(deck.Next());
+
+    Card up_card = DealerCard();
+    for (const auto &seat : seats_) {
+      seat->Simulate(up_card);
+    }
+
+    // Check for actives and run dealer strat.
   }
 
 }  // namespace bjmc

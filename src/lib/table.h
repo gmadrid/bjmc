@@ -1,6 +1,7 @@
 #ifndef TABLE_H
 #define TABLE_H
 
+#include "hand.h"
 #include "seat.h"
 #include "strategy.h"
 
@@ -18,10 +19,14 @@ class Table {
   Table& operator=(const Table &) = delete;
   Table& operator=(Table&&) = delete;
 
-  void Simulate();
+  void Simulate() noexcept;
+  void Reset() noexcept;
+
+  Card DealerCard() { return dealer_hand_[0]; }
 
  private:
   std::unique_ptr<DealerStrategy> dealer_strategy_;
+  Hand dealer_hand_;
   std::vector<Seat> seats_;
 };
 

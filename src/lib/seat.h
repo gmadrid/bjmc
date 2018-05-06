@@ -3,6 +3,7 @@
 
 #include <memory>
 
+#include "deck.h"
 #include "player.h"
 #include "wager.h"
 
@@ -18,6 +19,9 @@ class Seat {
   Seat(Seat&&) = default;
   Seat& operator=(const Seat &) = default;
   Seat& operator=(Seat&&) = default;
+
+  void MakeWager() noexcept;
+  void DealHand(Deck *) noexcept;
 
  private:
   std::unique_ptr<Player> player_;
