@@ -4,7 +4,7 @@
 #include "card.h"
 #include "hand.h"
 
-namespace bjmc {	
+namespace bjmc {
 
 class Player {
  public:
@@ -26,11 +26,11 @@ class Player {
 
   //  const Hand &Hand() { return hand_; }
 
-private:
+ private:
   //  Hand hand_;
   std::string name_;
 };
 
 }  // namespace bjmc
 
-#endif // PLAYER_H
+#endif  // PLAYER_H

@@ -20,4 +20,4 @@ TEST(BasicDealerStrategy, Simple) {
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"TS", "AH"}));
 }
 
-} // namespace bjmc
+}  // namespace bjmc

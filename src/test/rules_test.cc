@@ -17,4 +17,4 @@ TEST(Rules, DealerHitsTest) {
   EXPECT_FALSE(rules.DealerHits(Hand{"AS", "JC"}));
 }
 
-} // namespace bjmc
+}  // namespace bjmc

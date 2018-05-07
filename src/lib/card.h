@@ -26,8 +26,13 @@ enum class Pips : short {
   King
 };
 
+/**
+ * A fundamental unit in a card deck.
+ * Each Card has a value as well as a Pip and a Suit.
+ * (Suits are irrelevant for Blackjack, but the user expects them in the UI.)
+ */
 class Card {
-public:
+ public:
   Card() = delete;
 
   // TODO: swap suit, pips
@@ -42,7 +47,7 @@ public:
   Card &operator=(const Card &other) = default;
   Card &operator=(Card &&other) = default;
 
-  friend bool operator==(const Card &lhs, const Card &rhs) {
+  friend bool operator==(const Card &lhs, const Card &rhs) noexcept {
     return lhs.suit_ == rhs.suit_ && lhs.pips_ == rhs.pips_;
   }
 
@@ -55,13 +60,12 @@ public:
   }
 
   std::string ToString() const noexcept;
-  static Card FromString(const absl::string_view &str) noexcept;
 
-private:
-  ::bjmc::Suit suit_;
-  ::bjmc::Pips pips_;
+ private:
+  enum Suit suit_;
+  enum Pips pips_;
 };
 
-} // namespace bjmc
+}  // namespace bjmc
 
-#endif // CARD_H
+#endif  // CARD_H

@@ -8,7 +8,7 @@
 namespace bjmc {
 
 class Hand {
-public:
+ public:
   // Create a new empty hand.
   Hand() noexcept {}
 
@@ -37,11 +37,11 @@ public:
 
   int Value() const noexcept;
   bool IsSoft() const noexcept;
-  bool IsBusted() const noexcept { return Value() > 21; } // TEST
+  bool IsBusted() const noexcept { return Value() > 21; }  // TEST
 
   std::string ToString() const noexcept;
 
-private:
+ private:
   void ComputeValues() const noexcept;
 
   std::vector<Card> cards_;
@@ -51,6 +51,6 @@ private:
   mutable bool is_soft_ = false;
 };
 
-} // namespace bjmc
+}  // namespace bjmc
 
-#endif // HAND_H
+#endif  // HAND_H

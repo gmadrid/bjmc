@@ -11,14 +11,14 @@ namespace bjmc {
 
 class Seat {
  public:
- Seat(std::unique_ptr<Player> player) : player_(std::move(player)) {}
+  Seat(std::unique_ptr<Player> player) : player_(std::move(player)) {}
 
   Seat() = delete;
   ~Seat() = default;
   Seat(const Seat &) = default;
-  Seat(Seat&&) = default;
-  Seat& operator=(const Seat &) = default;
-  Seat& operator=(Seat&&) = default;
+  Seat(Seat &&) = default;
+  Seat &operator=(const Seat &) = default;
+  Seat &operator=(Seat &&) = default;
 
   void MakeWager() noexcept;
   void DealHand(Deck *) noexcept;

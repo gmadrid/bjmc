@@ -9,14 +9,13 @@
 namespace bjmc {
 
 class Game {
-
   // 1. Make a Dealer player with dealer strategy.
   // 2. Make a Player with basic strategy.
   // 3. Run the Player.
   // 4. Run the Dealer.
   // 5. Find winner.
 
-public:
+ public:
   Game(std::unique_ptr<DealerStrategy> dealer,
        std::unique_ptr<PlayerStrategy> player,
        std::unique_ptr<Deck> shuffled_deck);
@@ -31,7 +30,7 @@ public:
 
   Card DealerCard() const noexcept;
 
-private:
+ private:
   void DealStartingHands();
   void RunPlayer();
   void RunDealer();
@@ -46,6 +45,6 @@ private:
   std::unique_ptr<Deck> deck_;
 };
 
-} // namespace bjmc
+}  // namespace bjmc
 
-#endif // GAME_H
+#endif  // GAME_H

@@ -9,7 +9,7 @@
 namespace bjmc {
 
 class Deck {
-public:
+ public:
   Deck();
   void Shuffle() noexcept;
 
@@ -20,11 +20,11 @@ public:
   }
   int Size() const noexcept { return cards_.size(); }
 
-private:
+ private:
   std::vector<Card> cards_;
   std::random_device rnd_;
 };
 
-} // namespace bjmc
+}  // namespace bjmc
 
-#endif // DECK_H
+#endif  // DECK_H

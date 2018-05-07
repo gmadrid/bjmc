@@ -10,26 +10,26 @@ enum class Action {
   Hit,
   Insurance,
   Split,
-  Double // DoubleDown
+  Double  // DoubleDown
 };
 
 // The dealer has only one decision.
 class DealerStrategy {
-public:
+ public:
   virtual Action ChooseAction(const Hand &dealer_hand) const noexcept = 0;
 };
 
 class PlayerStrategy {
-public:
+ public:
   virtual Action ChooseAction(const Hand &player_hand, Card dealer_card) const
       noexcept = 0;
 };
 
 class BasicDealerStrategy : public DealerStrategy {
-public:
+ public:
   Action ChooseAction(const Hand &dealer_hand) const noexcept override;
 };
 
-} // namespace bjmc
+}  // namespace bjmc
 
-#endif // STRATEGY_H
+#endif  // STRATEGY_H

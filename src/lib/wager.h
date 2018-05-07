@@ -3,9 +3,9 @@
 
 namespace bjmc {
 
-  class Wager {
-  public:
-  };
+class Wager {
+ public:
+};
 
 }  // namespace bjmc
 

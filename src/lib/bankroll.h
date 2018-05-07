@@ -4,7 +4,7 @@
 namespace bjmc {
 
 class Bankroll {
-public:
+ public:
   Bankroll(int starting_amount) : amount_(starting_amount){};
 
   Bankroll() = delete;
@@ -17,6 +17,6 @@ public:
 
 private : int amount_;
 
-} // namespace bjmc
+}  // namespace bjmc
 
-#endif // BANKROLL_H
+#endif  // BANKROLL_H

@@ -20,4 +20,4 @@ void Deck::Shuffle() noexcept {
   std::shuffle(cards_.begin(), cards_.end(), rnd_);
 }
 
-} // namespace bjmc
+}  // namespace bjmc

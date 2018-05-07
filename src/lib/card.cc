@@ -36,4 +36,4 @@ std::string Card::ToString() const noexcept {
   return buf;
 }
 
-} // namespace bjmc
+}  // namespace bjmc

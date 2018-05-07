@@ -117,10 +117,8 @@ Action BasicStrategy::ChooseAction(const Hand &player_hand,
   }
 
   int value = player_hand.Value();
-  if (value < 9)
-    return Action::Hit;
-  if (value > 16)
-    return Action::Stay;
+  if (value < 9) return Action::Hit;
+  if (value > 16) return Action::Stay;
 
   Action action =
       hard_actions[value - 9][static_cast<int>(dealer_card.Pips()) - 1];
@@ -135,4 +133,4 @@ Action BasicStrategy::ChooseAction(const Hand &player_hand,
   return action;
 }
 
-} // namespace bjmc
+}  // namespace bjmc

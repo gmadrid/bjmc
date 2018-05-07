@@ -7,8 +7,7 @@ void Hand::ComputeValues() const noexcept {
   int ace_seen = false;
   for (const auto card : cards_) {
     auto val = card.Value();
-    if (val == 1)
-      ace_seen = true;
+    if (val == 1) ace_seen = true;
     total += card.Value();
   }
   is_soft_ = false;
@@ -46,4 +45,4 @@ std::string Hand::ToString() const noexcept {
   return val;
 }
 
-} // namespace bjmc
+}  // namespace bjmc

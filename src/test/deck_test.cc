@@ -16,4 +16,4 @@ TEST(Deck, Basic) {
   EXPECT_EQ(50, deck.Size());
 }
 
-} // namespace bjmc
+}  // namespace bjmc

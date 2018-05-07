@@ -6,7 +6,7 @@
 namespace bjmc {
 
 class Rules {
-public:
+ public:
   bool DealerHits(const Hand &hand) const noexcept { return hand.Value() < 17; }
 
   bool DealerWins(const Hand &dealer, const Hand &player) const noexcept {
@@ -26,6 +26,6 @@ public:
   }
 };
 
-} // namespace bjmc
+}  // namespace bjmc
 
-#endif // RULES_H
+#endif  // RULES_H

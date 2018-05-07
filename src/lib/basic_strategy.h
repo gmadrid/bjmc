@@ -6,11 +6,11 @@
 namespace bjmc {
 
 class BasicStrategy : public PlayerStrategy {
-public:
+ public:
   Action ChooseAction(const Hand &player_hand, Card dealer_card) const
       noexcept override;
 };
 
-} // namespace bjmc
+}  // namespace bjmc
 
-#endif // BASIC_STRATEGY_H
+#endif  // BASIC_STRATEGY_H
