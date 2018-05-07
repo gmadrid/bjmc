@@ -1,3 +1,5 @@
+#include "absl/strings/str_join.h"
+
 #include "hand.h"
 
 namespace bjmc {
@@ -36,13 +38,10 @@ bool Hand::IsSoft() const noexcept {
 }
 
 std::string Hand::ToString() const noexcept {
-  // TODO: get absl in here.
-  std::string val;
-  for (const auto &card : cards_) {
-    val += card.ToString() + " ";
-  }
-  val += "-> " + std::to_string(Value());
-  return val;
+  auto str = absl::StrJoin(cards_, " ", [](std::string* out, const Card &card) {
+      out->append(card.ToString());
+    });
+  return absl::StrCat(str, "-> ", std::to_string(Value()));
 }
 
 }  // namespace bjmc
