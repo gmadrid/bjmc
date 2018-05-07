@@ -36,19 +36,24 @@ download_project(PROJ                abseil
 add_subdirectory(${abseil_SOURCE_DIR} ${abseil_BINARY_DIR})
 
 ###
+### library
+###
+add_library(bjmc_lib ${sources_lib})
+target_link_libraries(bjmc_lib absl_strings)
+target_include_directories(bjmc_lib PRIVATE absl_strings)
+
+###
 ### bjmc
 ###
-add_executable(bjmc ${sources_lib} ${sources_main})
-target_include_directories(bjmc PRIVATE absl_strings)
-target_link_libraries(bjmc absl_strings)
+add_executable(bjmc ${sources_main})
+target_link_libraries(bjmc bjmc_lib)
 
 ###
 ### unittests
 ###
 enable_testing()
-add_executable(unit_tests ${sources_lib} ${sources_test})
-target_include_directories(unit_tests PRIVATE absl_strings)
-target_link_libraries(unit_tests absl_strings gtest gtest_main)
+add_executable(unit_tests ${sources_test})
+target_link_libraries(unit_tests bjmc_lib gtest gtest_main)
 add_test(NAME    bjmc_test
          COMMAND unit_tests)
 
