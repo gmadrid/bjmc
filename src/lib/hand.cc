@@ -23,6 +23,14 @@ void Hand::ComputeValues() const noexcept {
   values_valid_ = true;
 }
 
+  Hand Hand::Split() noexcept {
+    Hand other;
+    other.AddCard(cards_.back());
+    cards_.pop_back();
+    values_valid_ = false;
+    return other;
+  }
+  
 int Hand::Value() const noexcept {
   if (!values_valid_) {
     ComputeValues();
@@ -38,9 +46,9 @@ bool Hand::IsSoft() const noexcept {
 }
 
 std::string Hand::ToString() const noexcept {
-  const auto str = absl::StrJoin(cards_, " ", [](std::string* out, const Card &card) {
-      out->append(card.ToString());
-    });
+  const auto str = absl::StrJoin(
+      cards_, " ",
+      [](std::string* out, const Card& card) { out->append(card.ToString()); });
   return absl::StrCat(str, "-> ", std::to_string(Value()));
 }
 

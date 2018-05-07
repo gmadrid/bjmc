@@ -34,6 +34,8 @@ class Hand {
     values_valid_ = false;
   }
 
+  Hand Split() noexcept;
+  
   int Value() const noexcept;
   bool IsSoft() const noexcept;
   bool IsBusted() const noexcept { return Value() > 21; }  // TEST
