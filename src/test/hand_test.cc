@@ -129,20 +129,6 @@ TEST(Hand, SoftWithAces) {
   EXPECT_TRUE(hand.IsSoft());
 }
 
-TEST(Hand, Indexing) {
-  Hand hand{"AS", "2C", "3H", "4D"};
-  EXPECT_EQ(Card{"AS"}, hand[0]);
-  EXPECT_EQ(Card{"2C"}, hand[1]);
-  EXPECT_EQ(Card{"3H"}, hand[2]);
-  EXPECT_EQ(Card{"4D"}, hand[3]);
-
-  hand[1] = Card("TD");
-  EXPECT_EQ(Card{"AS"}, hand[0]);
-  EXPECT_EQ(Card{"TD"}, hand[1]);
-  EXPECT_EQ(Card{"3H"}, hand[2]);
-  EXPECT_EQ(Card{"4D"}, hand[3]);
-}
-
 TEST(Hand, ConstIndexing) {
   const Hand hand{"AS", "2C", "3H", "4D"};
   EXPECT_EQ(Card{"AS"}, hand[0]);

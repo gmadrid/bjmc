@@ -38,7 +38,7 @@ bool Hand::IsSoft() const noexcept {
 }
 
 std::string Hand::ToString() const noexcept {
-  auto str = absl::StrJoin(cards_, " ", [](std::string* out, const Card &card) {
+  const auto str = absl::StrJoin(cards_, " ", [](std::string* out, const Card &card) {
       out->append(card.ToString());
     });
   return absl::StrCat(str, "-> ", std::to_string(Value()));

@@ -25,7 +25,6 @@ class Hand {
   Hand &operator=(const Hand &other) = default;
   Hand &operator=(Hand &&other) = default;
 
-  Card &operator[](size_t index) noexcept { return cards_[index]; }
   const Card &operator[](size_t index) const noexcept { return cards_[index]; }
 
   size_t Size() const noexcept { return cards_.size(); }
