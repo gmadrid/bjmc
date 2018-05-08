@@ -20,17 +20,24 @@ void Hand::ComputeValues() const noexcept {
     }
   }
   total_ = total;
-  values_valid_ = true;
+  InvalidateValues();
 }
 
-  Hand Hand::Split() noexcept {
-    Hand other;
-    other.AddCard(cards_.back());
-    cards_.pop_back();
-    values_valid_ = false;
-    return other;
-  }
-  
+void Hand::AddCard(Card card) noexcept {
+  cards_.emplace_back(std::move(card));
+  InvalidateValues();
+}
+
+Hand Hand::Split() noexcept {
+  assert(Size() == 2);
+
+  Hand other;
+  other.AddCard(cards_.back());
+  cards_.pop_back();
+  InvalidateValues();
+  return other;
+}
+
 int Hand::Value() const noexcept {
   if (!values_valid_) {
     ComputeValues();

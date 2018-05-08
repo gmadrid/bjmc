@@ -61,12 +61,8 @@ Wager - A chipstack with an associated Hand.
 Chipstack - A collection of money. Money can be transferred between chip stacks.
 
 
-Hand - A collection of cards in a Blackjack hand. Can be empty, or could
-  contain a whole Deck. The Value() of a hand is determined using the rules of
-  Blackjack.
-
-
 ==
+hand
 card
 deck
 

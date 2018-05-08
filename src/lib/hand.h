@@ -29,13 +29,9 @@ class Hand {
 
   size_t Size() const noexcept { return cards_.size(); }
 
-  void AddCard(Card card) noexcept {
-    cards_.emplace_back(std::move(card));
-    values_valid_ = false;
-  }
-
+  void AddCard(Card card) noexcept;
   Hand Split() noexcept;
-  
+
   int Value() const noexcept;
   bool IsSoft() const noexcept;
   bool IsBusted() const noexcept { return Value() > 21; }  // TEST
@@ -43,6 +39,7 @@ class Hand {
   std::string ToString() const noexcept;
 
  private:
+  void InvalidateValues() const noexcept { values_valid_ = false; }
   void ComputeValues() const noexcept;
 
   std::vector<Card> cards_;

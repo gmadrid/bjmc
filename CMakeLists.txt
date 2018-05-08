@@ -58,6 +58,7 @@ enable_testing()
 add_executable(unit_tests
   src/test/basic_strategy_test.cc
   src/test/card_test.cc
+  src/test/chipstack_test.cc
   src/test/deck_test.cc
   src/test/hand_test.cc
   src/test/rules_test.cc

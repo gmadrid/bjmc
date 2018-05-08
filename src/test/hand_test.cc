@@ -161,15 +161,15 @@ TEST(Hand, IsBusted) {
   EXPECT_TRUE((Hand{"TH", "TD", "AD", "5D"}.IsBusted()));
 }
 
-  TEST(Hand, Splitting) {
-    Hand hand{"AS", "AC"};
-    EXPECT_EQ(2, hand.Size());
+TEST(Hand, Splitting) {
+  Hand hand{"AS", "AC"};
+  EXPECT_EQ(2, hand.Size());
 
-    auto hand2 = hand.Split();
-    EXPECT_EQ(1, hand.Size());
-    EXPECT_EQ(1, hand2.Size());
-    EXPECT_EQ(Card("AS"), hand[0]);
-    EXPECT_EQ(Card("AC"), hand2[0]);
-  }
+  auto hand2 = hand.Split();
+  EXPECT_EQ(1, hand.Size());
+  EXPECT_EQ(1, hand2.Size());
+  EXPECT_EQ(Card("AS"), hand[0]);
+  EXPECT_EQ(Card("AC"), hand2[0]);
+}
 
 }  // namespace bjmc
