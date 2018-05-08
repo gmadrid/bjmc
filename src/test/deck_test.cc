@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 
 namespace bjmc {
+namespace tests {
 
 TEST(Deck, Basic) {
   Deck deck;
@@ -16,4 +17,5 @@ TEST(Deck, Basic) {
   EXPECT_EQ(50, deck.Size());
 }
 
+}  // namespace tests
 }  // namespace bjmc

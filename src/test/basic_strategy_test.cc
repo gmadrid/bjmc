@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 
 namespace bjmc {
+namespace tests {
 
 TEST(BasicStrategy, Splits) {
   BasicStrategy strategy;
@@ -69,4 +70,5 @@ TEST(BasicStrategy, Typical) {
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"5C", "7D"}, Card("6C")));
 }
 
+}  // namespace tests
 }  // namespace bjmc

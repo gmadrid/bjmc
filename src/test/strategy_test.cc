@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 
 namespace bjmc {
+namespace tests {
 
 TEST(BasicDealerStrategy, Simple) {
   BasicDealerStrategy strategy;
@@ -20,4 +21,5 @@ TEST(BasicDealerStrategy, Simple) {
   EXPECT_EQ(Action::Stay, strategy.ChooseAction(Hand{"TS", "AH"}));
 }
 
+}  // namespace tests
 }  // namespace bjmc

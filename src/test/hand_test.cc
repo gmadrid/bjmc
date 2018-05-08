@@ -3,6 +3,7 @@
 #include "gtest/gtest.h"
 
 namespace bjmc {
+namespace tests {
 
 TEST(Hand, Empty) {
   Hand hand;
@@ -172,4 +173,5 @@ TEST(Hand, Splitting) {
   EXPECT_EQ(Card("AC"), hand2[0]);
 }
 
+}  // namespace tests
 }  // namespace bjmc
