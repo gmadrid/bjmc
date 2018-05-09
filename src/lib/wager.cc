@@ -25,4 +25,4 @@ Wager Wager::Split(Deck *deck, Chipstack *from_stack) {
 
   return other;
 }
-}
+}  // namespace bjmc
