@@ -56,13 +56,9 @@ Player
 
 Seat -  
 
-Wager - A chipstack with an associated Hand.
-
-Chipstack - A collection of money. Money can be transferred between chip stacks.
-
-
 ==
 hand
 card
 deck
-
+chipstack
+wager

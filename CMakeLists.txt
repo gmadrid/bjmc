@@ -6,7 +6,7 @@ include(cmake/DownloadProject.cmake)
 ###
 ### config
 ###
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.7.2)
 set(CMAKE_CXX_FLAGS "-std=c++1z -Wall ${CMAKE_CXX_FLAGS}")
 
 ###
@@ -38,7 +38,8 @@ add_library(bjmc_lib
   src/lib/game.cc
   src/lib/hand.cc
   src/lib/strategy.cc
-  src/lib/table.cc)
+  src/lib/table.cc
+  src/lib/wager.cc)
 target_link_libraries(bjmc_lib
   PUBLIC
     absl_strings)
@@ -62,7 +63,8 @@ add_executable(unit_tests
   src/test/deck_test.cc
   src/test/hand_test.cc
   src/test/rules_test.cc
-  src/test/strategy_test.cc)
+  src/test/strategy_test.cc
+  src/test/wager_test.cc)
 
 target_link_libraries(unit_tests
   PRIVATE

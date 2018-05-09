@@ -5,16 +5,15 @@ namespace bjmc {
 
 class Chipstack {
  public:
-  Chipstack(int starting_amount) : amount_(starting_amount){};
+  Chipstack(int starting_amount = 0) : amount_(starting_amount){};
 
-  Chipstack() = delete;
   ~Chipstack() = default;
   Chipstack(const Chipstack &) = default;
   Chipstack(Chipstack &&) = default;
   Chipstack &operator=(const Chipstack &) = default;
   Chipstack &operator=(Chipstack &&) = default;
 
-  void Transfer(int xfer, Chipstack *other) noexcept {
+  void TransferFrom(int xfer, Chipstack *other) noexcept {
     amount_ -= xfer;
     other->amount_ += xfer;
   }

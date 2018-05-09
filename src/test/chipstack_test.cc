@@ -14,11 +14,11 @@ TEST(Chipstack, Xfer) {
   Chipstack from(50);
   Chipstack to(50);
 
-  from.Transfer(20, &to);
+  from.TransferFrom(20, &to);
   EXPECT_EQ(30, from.Value());
   EXPECT_EQ(70, to.Value());
 
-  from.Transfer(-30, &to);
+  from.TransferFrom(-30, &to);
   EXPECT_EQ(60, from.Value());
   EXPECT_EQ(40, to.Value());
 }
