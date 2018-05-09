@@ -26,7 +26,7 @@ Starting rules
   - Hit <= 16, Stand > 16
   - Dealer wins ties
 - Player
-  - DD on anything
+  - DD on any two cards.
   - Split any dups
 - Pay 3:2 on two card BJ
 
